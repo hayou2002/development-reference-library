@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Development Reference Library</title>
+  <desc id="desc">按开发问题检索官方文档、能力与服务，只返回少量已标状态的入口。</desc>
+  <rect width="1200" height="430" rx="28" fill="#f4f7f2"/>
+  <path d="M60 58H1140M60 372H1140" stroke="#d8e0d6"/>
+  <text x="68" y="116" font-family="Segoe UI,Arial,sans-serif" font-size="26" fill="#48715b">DEVELOPMENT REFERENCE LIBRARY</text>
+  <text x="68" y="174" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="42" font-weight="700" fill="#182d24">先找现成能力，再开始开发</text>
+  <text x="68" y="216" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="23" fill="#52665c">12 类开发问题 · 按需检索 · 配置与证据分开</text>
+  <rect x="68" y="260" width="282" height="58" rx="12" fill="#ffffff" stroke="#a7bcae"/>
+  <text x="92" y="297" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="23" fill="#274a38">“Supabase 数据库权限”</text>
+  <path d="M380 289H451" stroke="#6d9a7d" stroke-width="3"/>
+  <path d="M441 280L453 289L441 298" fill="none" stroke="#6d9a7d" stroke-width="3"/>
+  <g font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="22">
+    <rect x="485" y="246" width="286" height="86" rx="14" fill="#ffffff" stroke="#a7bcae"/>
+    <circle cx="514" cy="275" r="8" fill="#5b926e"/>
+    <text x="536" y="283" fill="#274a38">官方入口与用途</text>
+    <text x="510" y="314" fill="#687a70" font-size="18">需配置，不等于已连接</text>
+    <rect x="808" y="246" width="300" height="86" rx="14" fill="#dfeee3"/>
+    <text x="835" y="282" fill="#274a38">返回 1–5 条候选</text>
+    <text x="835" y="314" fill="#52665c" font-size="18">含来源、费用与核实状态</text>
+  </g>
+</svg>

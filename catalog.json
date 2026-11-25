@@ -1,0 +1,770 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-25",
+  "about": "AI 按任务检索的开发参考库：资料、能力、服务、工具分开登记；状态只表示入口是否核实或是否还需配置。",
+  "categories": [
+    {
+      "id": "requirements-architecture",
+      "name": "需求架构",
+      "description": "需求澄清、技术选型、系统与模块拆分、数据流设计。"
+    },
+    {
+      "id": "static-web",
+      "name": "静态网页",
+      "description": "官网、落地页、文档站、博客等以内容呈现为主的页面。"
+    },
+    {
+      "id": "frontend-interaction",
+      "name": "前端交互",
+      "description": "组件、表单、状态管理、路由与浏览器端行为。"
+    },
+    {
+      "id": "motion-media",
+      "name": "动效多媒体",
+      "description": "动画、滚动叙事、音视频、图形与图像处理。"
+    },
+    {
+      "id": "backend-data",
+      "name": "后端数据",
+      "description": "数据库、ORM、迁移、API、缓存与队列。"
+    },
+    {
+      "id": "auth-payments",
+      "name": "认证支付",
+      "description": "登录鉴权、权限、订阅、收付款与账单。"
+    },
+    {
+      "id": "fullstack-cloud",
+      "name": "全栈云服务",
+      "description": "托管、Serverless、对象存储与一体化后端平台。"
+    },
+    {
+      "id": "testing-security",
+      "name": "测试安全",
+      "description": "单元与端到端测试、浏览器自动化、依赖与接口安全。"
+    },
+    {
+      "id": "git-deploy",
+      "name": "Git部署",
+      "description": "版本控制、CI/CD、构建、域名与上线排错。"
+    },
+    {
+      "id": "mobile-miniapp-desktop",
+      "name": "移动小程序桌面",
+      "description": "App、微信小程序、桌面端与其打包发布。"
+    },
+    {
+      "id": "agent-tools",
+      "name": "Agent工具",
+      "description": "Agent 工作流、Skill、MCP、CLI 与提示词工程。"
+    },
+    {
+      "id": "case-review",
+      "name": "案例复盘",
+      "description": "公开案例、榜单、事后复盘与方法论文章。"
+    }
+  ],
+  "entries": [
+    {
+      "id": "context7",
+      "name": "Context7",
+      "kind": "mcp",
+      "categories": [
+        "agent-tools",
+        "requirements-architecture",
+        "backend-data"
+      ],
+      "tasks": [
+        "查询框架与库的最新官方文档",
+        "核对升级后 API 用法，避免过时写法",
+        "给依赖库找真实代码示例",
+        "为编码代理补充版本正确的文档上下文"
+      ],
+      "aliases": [
+        "Context7",
+        "context7",
+        "upstash/context7",
+        "文档检索 MCP",
+        "最新文档 MCP"
+      ],
+      "homepage": "https://context7.com",
+      "access": "官方安装向导 npx ctx7@latest setup；远程 MCP 端点 https://mcp.context7.com/mcp；网页可按库名搜索文档 ID。",
+      "setup": "运行官方向导后通过浏览器 OAuth 登录；无需 API key。免费档含 1000 次 API 调用/月，私有仓库和超额调用另有费用。",
+      "cost": "免费档 1000 次 API 调用/月；Pro $10/席位/月（2026-11-25 官方定价页）；超额与私有仓库费用见官方页面",
+      "license": "unknown（托管服务，工具仓库另见其 LICENSE）",
+      "status": "verified",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://context7.com 返回 HTTP 200，标题为 Context7 - Up-to-date docs for AI agents。",
+        "2026-11-25 官方安装页 https://context7.com/docs/installation 核实 npx ctx7@latest setup 与 OAuth；官方定价页 https://context7.com/docs/plans-pricing 核实免费额度。未实际发起 MCP 调用。"
+      ],
+      "notes": "只解决“文档太旧”的问题，不代替项目源码阅读；未配置 MCP 时只能当网页文档检索用。"
+    },
+    {
+      "id": "deepwiki",
+      "name": "DeepWiki",
+      "kind": "service",
+      "categories": [
+        "requirements-architecture",
+        "case-review",
+        "agent-tools"
+      ],
+      "tasks": [
+        "快速理解陌生 GitHub 仓库结构",
+        "查开源项目的模块职责与调用关系",
+        "给仓库生成问答式导读",
+        "为选型比较多个仓库的实现方式"
+      ],
+      "aliases": [
+        "DeepWiki",
+        "deepwiki",
+        "Devin DeepWiki",
+        "仓库导读",
+        "deepwiki mcp"
+      ],
+      "homepage": "https://deepwiki.com",
+      "access": "网页 https://deepwiki.com/<owner>/<repo>；MCP 端点 https://mcp.deepwiki.com/mcp。",
+      "setup": "网页直接访问公开仓库；MCP 需在客户端登记远程端点，私有仓库需要额外授权。",
+      "cost": "unknown",
+      "license": "unknown",
+      "status": "verified",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://docs.devin.ai/work-with-devin/deepwiki-mcp 返回 HTTP 200，标题为 DeepWiki MCP - Devin Docs。",
+        "同日抓取 https://deepwiki.com 返回 HTTP 429 人机校验页，主页内容未取回，故只依据官方文档确认入口。"
+      ],
+      "notes": "生成内容是自动摘要，必须回源码核对；不当作权威结论引用。"
+    },
+    {
+      "id": "skills-sh",
+      "name": "skills.sh",
+      "kind": "directory",
+      "categories": [
+        "agent-tools"
+      ],
+      "tasks": [
+        "查找现成的 Agent Skill",
+        "比较同类 Skill 的来源与热度",
+        "给团队挑选可复用技能",
+        "查看某个 Skill 的安装命令"
+      ],
+      "aliases": [
+        "skills.sh",
+        "skills sh",
+        "The Agent Skills Directory",
+        "Skill 目录",
+        "技能目录"
+      ],
+      "homepage": "https://www.skills.sh",
+      "access": "网页目录；条目页给出 npx skills 安装命令。",
+      "setup": "浏览无需配置；安装由用户自行决定并执行，本库不代装、不批量安装。",
+      "cost": "目录免费；收录工具自身费用 unknown",
+      "license": "unknown（各 Skill 分别授权）",
+      "status": "verified",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://www.skills.sh 返回 HTTP 200，标题为 The Agent Skills Directory。",
+        "https://skills.sh 同日 301 跳转到 https://www.skills.sh。"
+      ],
+      "notes": "目录收录广，质量参差；选中条目后仍需读其源码与许可。"
+    },
+    {
+      "id": "github-spec-kit",
+      "name": "GitHub spec-kit",
+      "kind": "toolkit",
+      "categories": [
+        "requirements-architecture",
+        "git-deploy",
+        "agent-tools"
+      ],
+      "tasks": [
+        "规格驱动开发流程",
+        "把需求整理成 spec、plan 与 tasks",
+        "给编码代理建立可执行规格",
+        "从零初始化一个带规格的项目"
+      ],
+      "aliases": [
+        "spec-kit",
+        "GitHub spec-kit",
+        "SDD",
+        "规格驱动开发",
+        "specify"
+      ],
+      "homepage": "https://github.com/github/spec-kit",
+      "access": "Python CLI：uvx 或 pipx 安装后运行 specify 子命令。",
+      "setup": "需要 Python 3.11+、git 与 uv；用 uvx --from git+https://github.com/github/spec-kit.git specify init <项目名> 初始化。",
+      "cost": "free",
+      "license": "MIT",
+      "status": "verified",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://github.com/github/spec-kit 返回 HTTP 200，标题为 GitHub - github/spec-kit。",
+        "同日抓取 https://raw.githubusercontent.com/github/spec-kit/main/LICENSE 返回 MIT License。"
+      ],
+      "notes": "初始化命令会写入项目文件，属于产品级改动；本库只登记入口，不在用户项目上代跑。"
+    },
+    {
+      "id": "obra-superpowers",
+      "name": "obra/superpowers",
+      "kind": "skill",
+      "categories": [
+        "agent-tools",
+        "requirements-architecture",
+        "testing-security"
+      ],
+      "tasks": [
+        "给编码代理一套完整开发方法论",
+        "从头脑风暴到实现的技能编排",
+        "标准化 TDD 与调试流程",
+        "让代理按固定流程做计划与验证"
+      ],
+      "aliases": [
+        "superpowers",
+        "obra/superpowers",
+        "agentic skills framework",
+        "技能框架"
+      ],
+      "homepage": "https://github.com/obra/superpowers",
+      "access": "Claude Code 插件市场安装，或按 README 手动放置 skills 目录。",
+      "setup": "先添加插件市场 obra/superpowers-marketplace 再安装对应插件；其他客户端按其 README 手动复制技能目录。",
+      "cost": "free",
+      "license": "MIT",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://github.com/obra/superpowers 返回 HTTP 200，标题为 GitHub - obra/superpowers。",
+        "同日抓取 https://raw.githubusercontent.com/obra/superpowers/main/LICENSE 返回 MIT License。"
+      ],
+      "notes": "技能框架会改变代理行为，安装前先读技能内容；未安装时只能读仓库了解方法。"
+    },
+    {
+      "id": "supabase-skills-mcp",
+      "name": "Supabase 官方 Skills / MCP",
+      "kind": "skill+mcp",
+      "categories": [
+        "backend-data",
+        "auth-payments",
+        "fullstack-cloud",
+        "testing-security"
+      ],
+      "tasks": [
+        "Supabase 数据库权限与 RLS 策略",
+        "Postgres 表结构设计与迁移",
+        "Supabase Auth 登录与会话",
+        "Storage 与 Edge Functions",
+        "本地与云端项目连接排查"
+      ],
+      "aliases": [
+        "Supabase",
+        "supabase",
+        "Supabase MCP",
+        "Supabase Agent Skills",
+        "RLS",
+        "行级安全"
+      ],
+      "homepage": "https://supabase.com/docs/guides/ai-tools",
+      "access": "远程 MCP https://mcp.supabase.com/mcp；官方 Skills 仓库 https://github.com/supabase/agent-skills。",
+      "setup": "MCP 需 OAuth 或 Personal Access Token 并指定 project ref；Skills 用 npx skills add supabase/agent-skills 安装到客户端。",
+      "cost": "免费档 + 付费档；价格以官网为准",
+      "license": "agent-skills 仓库 MIT；平台为商业服务",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://supabase.com/docs/guides/ai-tools 与 https://supabase.com/docs/guides/ai-tools/mcp 均返回 HTTP 200。",
+        "同日抓取 https://github.com/supabase/agent-skills 返回 HTTP 200，其 LICENSE 为 MIT。"
+      ],
+      "notes": "未登录、未建项目时不能声称已接通；数据库操作可能产生真实变更，测试优先用本地或分支项目。"
+    },
+    {
+      "id": "cloudbase-skills-mcp",
+      "name": "腾讯 CloudBase 官方 Skills / MCP",
+      "kind": "skill+mcp",
+      "categories": [
+        "fullstack-cloud",
+        "backend-data",
+        "mobile-miniapp-desktop",
+        "agent-tools"
+      ],
+      "tasks": [
+        "微信小程序云开发后端",
+        "CloudBase 数据库与云函数",
+        "静态托管与云存储",
+        "给 AI 代理接入腾讯云开发",
+        "小程序登录与用户体系"
+      ],
+      "aliases": [
+        "CloudBase",
+        "腾讯云开发",
+        "TCB",
+        "cloudbase-mcp",
+        "云开发 MCP",
+        "微信云开发"
+      ],
+      "homepage": "https://docs.cloudbase.net/",
+      "access": "官方插件同时提供 Skills 与 MCP；本地 MCP 使用 npx -y @cloudbase/npm-launcher@1.3.0 @cloudbase/cloudbase-mcp@latest；远程端点 https://tcb-api.cloud.tencent.com/mcp/v1。",
+      "setup": "需登录腾讯云开发账号并准备环境 ID；首次使用会触发登录或要求配置密钥。",
+      "cost": "有免费额度与按量计费；具体价格 unknown",
+      "license": "cloudbase-mcp 仓库 MIT；平台为商业服务",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://docs.cloudbase.net/ 返回 HTTP 200，标题为云开发文档中心。",
+        "同日抓取 https://github.com/TencentCloudBase/cloudbase-mcp 返回 HTTP 200，其 LICENSE 为 MIT。",
+        "2026-11-25 官方连接文档 https://docs.cloudbase.net/en/ai/cloudbase-ai-toolkit/connection-modes 核实本地启动器与远程端点；本机通过 npx skills add TencentCloudBase/CloudBase-AI-ToolKit --list 读取到 46 个技能，未安装。"
+      ],
+      "notes": "云开发与腾讯云账号、环境绑定；未配置环境 ID 时不能承诺可调用。"
+    },
+    {
+      "id": "neon-mcp",
+      "name": "Neon MCP",
+      "kind": "mcp",
+      "categories": [
+        "backend-data",
+        "fullstack-cloud"
+      ],
+      "tasks": [
+        "Serverless Postgres 建库与分支",
+        "数据库迁移与 SQL 查询",
+        "给 AI 代理接 Postgres",
+        "比较开发分支与生产数据"
+      ],
+      "aliases": [
+        "Neon",
+        "neon.tech",
+        "Neon MCP",
+        "serverless postgres",
+        "数据库分支"
+      ],
+      "homepage": "https://neon.com/docs/ai/neon-mcp-server",
+      "access": "远程 MCP https://mcp.neon.tech/mcp；也提供本地 server 与 API key 方式。",
+      "setup": "MCP 客户端登记远程端点后走 OAuth 并选择项目；脚本方式需在控制台创建 API key。",
+      "cost": "免费档 + 付费档；价格 unknown",
+      "license": "unknown（托管服务）",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://neon.com/docs/ai/neon-mcp-server 返回 HTTP 200，标题为 Neon MCP Server overview - Neon Docs。",
+        "同日抓取 https://mcp.neon.tech/mcp 返回 HTTP 200。"
+      ],
+      "notes": "写操作会落到真实数据库；未授权项目只做查询，破坏性 SQL 先备份或改用分支。"
+    },
+    {
+      "id": "vercel-skills-mcp",
+      "name": "Vercel 官方 Skills / MCP",
+      "kind": "skill+mcp",
+      "categories": [
+        "git-deploy",
+        "fullstack-cloud",
+        "frontend-interaction",
+        "agent-tools"
+      ],
+      "tasks": [
+        "Next.js 应用部署",
+        "预览环境、域名与回滚",
+        "构建日志与部署排错",
+        "Vercel 平台 API 与项目配置",
+        "给代理接入 Vercel 知识库技能"
+      ],
+      "aliases": [
+        "Vercel",
+        "Next.js 部署",
+        "vercel mcp",
+        "vercel-labs/agent-skills",
+        "部署平台"
+      ],
+      "homepage": "https://vercel.com/docs/mcp",
+      "access": "远程 MCP https://mcp.vercel.com；官方 Skills 仓库 https://github.com/vercel-labs/agent-skills。",
+      "setup": "MCP 需 Vercel 账号授权并选择团队与项目；Skills 用 npx skills add vercel-labs/agent-skills 安装。",
+      "cost": "Hobby 免费档 + 付费档；价格 unknown",
+      "license": "README License 小节声明 MIT，但仓库根目录无 LICENSE 文件（2026-11-25 核实）",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://vercel.com/docs/mcp 与 https://vercel.com/docs/agent-resources/skills 均返回 HTTP 200。",
+        "同日抓取 https://github.com/vercel-labs/agent-skills 返回 HTTP 200；其 LICENSE 路径返回 404，故许可记为 unknown。"
+      ],
+      "notes": "部署与域名操作影响线上环境；未授权团队时只读文档，不代为发布。"
+    },
+    {
+      "id": "playwright-mcp",
+      "name": "Playwright MCP",
+      "kind": "mcp",
+      "categories": [
+        "testing-security",
+        "frontend-interaction",
+        "agent-tools"
+      ],
+      "tasks": [
+        "网页浏览器自动化测试",
+        "让 AI 操作真实浏览器并截图",
+        "复现前端交互问题",
+        "检查控制台报错与网络请求",
+        "验证登录与表单流程"
+      ],
+      "aliases": [
+        "Playwright",
+        "Playwright MCP",
+        "playwright-mcp",
+        "浏览器自动化",
+        "网页测试"
+      ],
+      "homepage": "https://github.com/microsoft/playwright-mcp",
+      "access": "本地 stdio MCP：npx @playwright/mcp@latest。",
+      "setup": "需要 Node 18+；客户端配置 command=npx、args=@playwright/mcp@latest；首次运行会下载浏览器内核。",
+      "cost": "free",
+      "license": "Apache-2.0",
+      "status": "verified",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://github.com/microsoft/playwright-mcp 返回 HTTP 200，标题为 GitHub - microsoft/playwright-mcp。",
+        "同日抓取 https://raw.githubusercontent.com/microsoft/playwright-mcp/main/LICENSE 返回 Apache License 2.0。"
+      ],
+      "notes": "默认使用本机浏览器，不产生云费用；测试数据用本地夹具，不指向真实用户环境。"
+    },
+    {
+      "id": "stripe-mcp",
+      "name": "Stripe MCP",
+      "kind": "mcp",
+      "categories": [
+        "auth-payments",
+        "backend-data"
+      ],
+      "tasks": [
+        "支付与订阅价格配置",
+        "创建测试支付链接",
+        "退款与账单查询",
+        "Webhook 事件调试",
+        "给代理接支付能力"
+      ],
+      "aliases": [
+        "Stripe",
+        "Stripe MCP",
+        "stripe-mcp",
+        "支付接口",
+        "订阅"
+      ],
+      "homepage": "https://docs.stripe.com/mcp",
+      "access": "远程 MCP https://mcp.stripe.com；也可用官方本地 server 与受限 API key。",
+      "setup": "需 Stripe 账号；远程端点走 OAuth，本地方式用受限 key 并优先测试模式。",
+      "cost": "Stripe 按交易收费；MCP 本身不额外收费，费率以官网为准",
+      "license": "unknown（商业服务）",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://docs.stripe.com/mcp 返回 HTTP 200（当日返回日文语言版本，标题为 Model Context Protocol (MCP) | Stripe ドキュメント）。"
+      ],
+      "notes": "支付操作涉及真实资金；只登记入口与测试步骤，不保存密钥，不在未授权账号上发起扣款。"
+    },
+    {
+      "id": "github-docs",
+      "name": "GitHub 官方文档",
+      "kind": "documentation",
+      "categories": [
+        "git-deploy",
+        "testing-security",
+        "agent-tools",
+        "case-review"
+      ],
+      "tasks": [
+        "GitHub Actions 工作流写法",
+        "仓库权限与分支保护",
+        "GitHub API 与 Webhook",
+        "Pages 与 Releases 发布",
+        "排查 CI 失败"
+      ],
+      "aliases": [
+        "GitHub Docs",
+        "GitHub 文档",
+        "Actions 文档",
+        "gh docs",
+        "workflow 语法"
+      ],
+      "homepage": "https://docs.github.com",
+      "access": "公开文档站；对应内容也存放在 github/docs 仓库。",
+      "setup": "无需配置，直接阅读；要验证示例需本地 git 与仓库权限。",
+      "cost": "free",
+      "license": "unknown（文档版权归 GitHub，仓库内容另见仓库 LICENSE）",
+      "status": "verified",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://docs.github.com 返回 HTTP 200，标题为 GitHub Docs。"
+      ],
+      "notes": "以官方文档为准；第三方教程与博客只作补充，不覆盖官方行为。"
+    },
+    {
+      "id": "openai-anthropic-agent-guides",
+      "name": "OpenAI / Anthropic Agent 指南",
+      "kind": "documentation",
+      "categories": [
+        "agent-tools",
+        "requirements-architecture",
+        "case-review"
+      ],
+      "tasks": [
+        "设计 Agent 工作流",
+        "工具调用与多步任务编排",
+        "评估 Agent 效果与失败模式",
+        "选择规划、反思或多代理结构",
+        "写系统提示与工具说明"
+      ],
+      "aliases": [
+        "OpenAI Agents",
+        "Anthropic Agent 指南",
+        "Building Effective Agents",
+        "agent 设计指南",
+        "多代理"
+      ],
+      "homepage": "https://developers.openai.com/docs/guides/agents",
+      "access": "在线文档：OpenAI Agents 指南与 Anthropic 的 Building Effective Agents 文章。",
+      "setup": "阅读无需配置；按指南实现时需要对应平台的 API key，本库不保存。",
+      "cost": "文档免费；模型调用按各自平台计费，价格 unknown",
+      "license": "unknown（文档版权归各自公司）",
+      "status": "reference_only",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://developers.openai.com/docs/guides/agents 返回 HTTP 200，标题为 Agents | OpenAI API。",
+        "同日抓取 https://www.anthropic.com/engineering/building-effective-agents 返回 HTTP 200。"
+      ],
+      "notes": "指南讲模式不讲具体项目实现；结论要回到当前项目约束验证。"
+    },
+    {
+      "id": "oil-book",
+      "name": "Oil Book",
+      "kind": "documentation",
+      "categories": [
+        "requirements-architecture",
+        "agent-tools",
+        "case-review",
+        "static-web"
+      ],
+      "tasks": [
+        "AI 时代工程实践参考",
+        "把想法做成可交付产品的方法",
+        "工作流与协作经验",
+        "内容型项目与写作流程"
+      ],
+      "aliases": [
+        "Oil Book",
+        "oilbook",
+        "oil-oil book",
+        "AI 实战指南",
+        "oil 书"
+      ],
+      "homepage": "https://book.oiloil.org",
+      "access": "网页阅读。",
+      "setup": "无需配置。",
+      "cost": "unknown（可能含付费内容，以站点为准）",
+      "license": "unknown",
+      "status": "reference_only",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://book.oiloil.org 返回 HTTP 200，标题为 Oil Book · AI 时代最好的实战指南。"
+      ],
+      "notes": "个人作者的经验总结，不是官方规范；引用时保留出处与日期。"
+    },
+    {
+      "id": "design-arena-api",
+      "name": "Design Arena 官方 API",
+      "kind": "api",
+      "categories": [
+        "case-review",
+        "frontend-interaction",
+        "static-web"
+      ],
+      "tasks": [
+        "对比 AI 生成的设计方案",
+        "查设计模型排行榜与对局",
+        "用 API 拉取评测结果",
+        "为设计选型找公开证据"
+      ],
+      "aliases": [
+        "Design Arena",
+        "designarena",
+        "Design Arena API",
+        "AI 设计排行榜",
+        "设计评测"
+      ],
+      "homepage": "https://docs.designarena.ai/api-reference/overview",
+      "access": "REST API，需 API key；网页端可查看公开榜单。",
+      "setup": "在 Design Arena 申请 API key 后按 API 文档调用；本库不保存密钥，未配置时只读公开页面。",
+      "cost": "unknown（API 计费与配额以官方文档为准）",
+      "license": "unknown",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": [
+        "2026-11-25 抓取 https://docs.designarena.ai/api-reference/overview 返回 HTTP 200，标题为 API Overview - Design Arena。"
+      ],
+      "notes": "榜单是特定时间点的评测结果，不当作长期结论；未配置 key 时不能声称已调用。"
+    },
+    {
+      "id": "nextjs-mcp",
+      "name": "Next.js 官方 MCP",
+      "kind": "mcp",
+      "categories": ["frontend-interaction", "testing-security"],
+      "tasks": ["读取 Next.js 开发服务器运行时状态", "诊断路由和运行时错误", "核对 Next.js 16 项目日志"],
+      "aliases": ["Next.js", "next-devtools-mcp", "Next 运行时调试"],
+      "homepage": "https://nextjs.org/docs/app/guides/mcp",
+      "access": "Next.js 16+ 开发服务器端点 /_next/mcp；连接器 npx add-mcp next-devtools-mcp@latest。",
+      "setup": "需要本机 Next.js 开发服务器；未运行时只读官方文档。",
+      "cost": "free",
+      "license": "MIT",
+      "status": "verified",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 官方文档 https://nextjs.org/docs/app/guides/mcp 与仓库 https://github.com/vercel/next-devtools-mcp 核实入口，未发起 MCP 调用。"],
+      "notes": "负责运行时状态，与 Vercel 部署入口和 Context7 文档检索互补。"
+    },
+    {
+      "id": "expo-mcp",
+      "name": "Expo 官方 MCP",
+      "kind": "mcp",
+      "categories": ["mobile-miniapp-desktop"],
+      "tasks": ["查询 Expo SDK 文档", "管理 EAS 构建", "操作 React Native 模拟器与 DevTools"],
+      "aliases": ["Expo", "React Native", "跨端 App", "EAS"],
+      "homepage": "https://docs.expo.dev/mcp",
+      "access": "远程 MCP https://mcp.expo.dev/mcp。",
+      "setup": "Expo 账号 OAuth；涉及项目时需要对应权限。",
+      "cost": "MCP 免费；EAS 有免费额度和付费档，以官网为准",
+      "license": "Expo SDK MIT；托管服务 unknown",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 官方文档 https://docs.expo.dev/mcp 核实端点与 OAuth，未登录或调用。"],
+      "notes": "跨端 App 入口，不与微信小程序或 CloudBase 混为同一技术栈。"
+    },
+    {
+      "id": "wechat-miniprogram",
+      "name": "微信小程序官方文档与 miniprogram-ci",
+      "kind": "documentation",
+      "categories": ["mobile-miniapp-desktop", "git-deploy"],
+      "tasks": ["查询小程序框架与组件", "预览和上传小程序", "代码包分析与平台验收"],
+      "aliases": ["微信小程序", "miniprogram-ci", "小程序开发", "微信开发者工具"],
+      "homepage": "https://developers.weixin.qq.com/miniprogram/dev/framework/",
+      "access": "官方文档与 npm CLI miniprogram-ci；不是 MCP。",
+      "setup": "阅读无需配置；上传需 AppID 与上传密钥，密钥只由用户配置。",
+      "cost": "开发工具免费；主体认证和平台费用以官方规则为准",
+      "license": "文档与工具许可以各自官方条款为准，unknown",
+      "status": "reference_only",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 官方框架 https://developers.weixin.qq.com/miniprogram/dev/framework/ 与 CI https://developers.weixin.qq.com/miniprogram/dev/devtools/ci.html 核实入口。"],
+      "notes": "仅登记官方文档和 CLI，不写爬虫或平台发布适配器。"
+    },
+    {
+      "id": "vue-docs",
+      "name": "Vue 3 官方文档",
+      "kind": "documentation",
+      "categories": ["frontend-interaction", "static-web"],
+      "tasks": ["查询 Vue 组合式 API", "核对响应式和组件规则", "查找 Vue 中文官方指南"],
+      "aliases": ["Vue", "Vue 3", "Vue.js", "组合式 API"],
+      "homepage": "https://vuejs.org/guide/introduction.html",
+      "access": "官方在线文档；也可通过 Context7 查询版本化资料。",
+      "setup": "无需配置。",
+      "cost": "free",
+      "license": "vuejs/docs MIT，图片文件除外",
+      "status": "reference_only",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 官方指南 https://vuejs.org/guide/introduction.html 与 https://github.com/vuejs/docs 核实。"],
+      "notes": "只放官方文档入口，无需另写 MCP 适配器。"
+    },
+    {
+      "id": "prisma-mcp",
+      "name": "Prisma 官方 MCP",
+      "kind": "mcp",
+      "categories": ["backend-data", "fullstack-cloud"],
+      "tasks": ["管理 Prisma schema 与迁移", "查询 Prisma Postgres", "为任意 Postgres 项目引入 ORM"],
+      "aliases": ["Prisma", "Prisma Postgres", "ORM", "数据库迁移"],
+      "homepage": "https://www.prisma.io/docs/ai/tools/mcp-server",
+      "access": "远程 MCP https://mcp.prisma.io/mcp；本地 npx prisma mcp。",
+      "setup": "远程需 OAuth 或 API key；本地需项目数据库连接和必要凭据。",
+      "cost": "MCP 免费；托管 Postgres 有免费档与付费档，以官网为准",
+      "license": "Prisma ORM Apache-2.0；托管服务 unknown",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 官方文档 https://www.prisma.io/docs/ai/tools/mcp-server 核实入口，未登录或调用。"],
+      "notes": "Prisma 管模型和迁移，Neon 管 Postgres 云资源；两者互补。"
+    },
+    {
+      "id": "firebase-mcp",
+      "name": "Firebase 官方 MCP",
+      "kind": "mcp",
+      "categories": ["fullstack-cloud", "backend-data", "auth-payments", "mobile-miniapp-desktop"],
+      "tasks": ["使用 Firestore 和 Firebase Auth", "管理 Remote Config", "读取 App Hosting 日志"],
+      "aliases": ["Firebase", "Firestore", "Firebase Auth", "BaaS"],
+      "homepage": "https://github.com/firebase/firebase-tools/blob/main/src/mcp/README.md",
+      "access": "npx -y firebase-tools@latest mcp。",
+      "setup": "需要 firebase login 和项目权限；未登录不能声称已连接。",
+      "cost": "Spark 免费档 + Blaze 按量；MCP 免费，以官网为准",
+      "license": "firebase-tools MIT；托管服务按官方条款",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 官方仓库 https://github.com/firebase/firebase-tools/blob/main/src/mcp/README.md 核实入口，未登录或调用。"],
+      "notes": "与 Supabase、CloudBase 是可选平台，按现有账号与部署地选择。"
+    },
+    {
+      "id": "clerk-mcp",
+      "name": "Clerk 官方 MCP",
+      "kind": "mcp",
+      "categories": ["auth-payments"],
+      "tasks": ["管理 Clerk 用户与组织", "配置 OAuth 客户端", "为应用接入独立认证服务"],
+      "aliases": ["Clerk", "登录认证", "用户组织", "OAuth"],
+      "homepage": "https://clerk.com/docs/guides/ai/mcp/clerk-mcp-server",
+      "access": "远程 MCP https://mcp.clerk.com/mcp。",
+      "setup": "Clerk 账号 OAuth，权限受工作区角色限制。",
+      "cost": "有免费档和付费档，具体额度以官网为准",
+      "license": "SDK MIT；托管服务 unknown",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 官方文档 https://clerk.com/docs/guides/ai/mcp/clerk-mcp-server 核实端点，未登录或调用。"],
+      "notes": "负责身份认证，与 Stripe 支付互补；不代替数据库权限设计。"
+    },
+    {
+      "id": "github-mcp",
+      "name": "GitHub 官方 MCP Server",
+      "kind": "mcp",
+      "categories": ["git-deploy", "testing-security"],
+      "tasks": ["读取 Issue PR 和 Actions", "查询代码扫描和 Dependabot 告警", "检查秘密保护状态"],
+      "aliases": ["GitHub MCP", "code security", "Dependabot", "secret protection"],
+      "homepage": "https://github.com/github/github-mcp-server",
+      "access": "远程 https://api.githubcopilot.com/mcp/；或官方本地容器。",
+      "setup": "GitHub OAuth 或最小权限 PAT；安全能力取决于仓库计划与权限。",
+      "cost": "MCP 免费；公开仓库部分安全能力免费，私有仓库高级安全功能按计划收费",
+      "license": "MIT",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 官方仓库 https://github.com/github/github-mcp-server 核实入口，未授权或调用。"],
+      "notes": "查真实仓库与安全告警，和 GitHub 文档、Playwright 运行时测试互补。"
+    },
+    {
+      "id": "cloudflare-mcp",
+      "name": "Cloudflare 官方 MCP",
+      "kind": "mcp",
+      "categories": ["git-deploy", "fullstack-cloud", "backend-data"],
+      "tasks": ["部署 Workers", "管理 KV R2 D1 和 DNS", "读取 Cloudflare 日志与文档"],
+      "aliases": ["Cloudflare", "Workers", "R2", "D1", "边缘部署"],
+      "homepage": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/",
+      "access": "官方远程 MCP 入口 https://mcp.cloudflare.com/mcp。",
+      "setup": "Cloudflare 账号 OAuth，按账号和产品授权。",
+      "cost": "有免费档与付费档，具体配额以官网为准",
+      "license": "Apache-2.0",
+      "status": "needs_setup",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 官方文档 https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/ 核实入口，未登录或调用。"],
+      "notes": "与 Vercel 是不同部署路线，按现有账号、应用类型与成本选择。"
+    },
+    {
+      "id": "gitmcp",
+      "name": "GitMCP 社区仓库文档入口",
+      "kind": "mcp",
+      "categories": ["agent-tools", "requirements-architecture", "case-review"],
+      "tasks": ["读取公开 GitHub 仓库文档", "搜索长尾项目 README 和代码", "为未收录库提供文档 MCP"],
+      "aliases": ["GitMCP", "GitHub 文档 MCP", "公开仓库文档"],
+      "homepage": "https://gitmcp.io",
+      "access": "按 https://gitmcp.io/{owner}/{repo} 形式连接远程 MCP。",
+      "setup": "公开仓库无需登录；仅作社区入口，内容回源仓库核实。",
+      "cost": "free",
+      "license": "Apache-2.0",
+      "status": "caution",
+      "last_verified": "2026-11-25",
+      "evidence": ["2026-11-25 https://gitmcp.io 与社区仓库许可核实，未实际发起 MCP 调用。"],
+      "notes": "社区项目，不冒充 GitHub 官方；Context7 查库文档、DeepWiki 查仓库导读、GitMCP 查仓库自身资料。"
+    }
+  ]
+}
